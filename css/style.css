@@ -140,7 +140,7 @@ body {
   font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background: #fff;
-  color: #64ae64;
+  color: #777;
   -webkit-overflow-scrolling: touch;
 }
 h1,
@@ -246,7 +246,7 @@ a {
 #container .left-col .overlay {
   width: 100%;
   height: 180px;
-  background-color: #080;
+  background-color: #724820;
   position: absolute;
   opacity: 0.7;
 }
@@ -950,6 +950,7 @@ a {
 .article-header {
   border-left: 5px solid;
   padding: 15px 0px 15px 25px;
+  color: #ba8f6c;
 }
 .article-info.info-on-right {
   margin: 10px 0 0 0;
@@ -1030,7 +1031,7 @@ a {
 }
 .article-entry h2 {
   margin-top: 20px;
-  font-weight: 300;
+  font-weight: 320;
   color: #574c4c;
   padding-bottom: 5px;
   border-bottom: 1px solid #ddd;
@@ -1040,7 +1041,7 @@ a {
 .article-entry h5,
 .article-entry h6 {
   margin-top: 20px;
-  font-weight: 300;
+  font-weight: 320;
   color: #574c4c;
   padding-bottom: 5px;
   border-bottom: 1px solid #ddd;
@@ -1631,6 +1632,7 @@ pre .css ~ * .id {
   bottom: 30px;
   opacity: 0.6;
   width: 100%;
+  color: #696969;
   text-align: center;
 }
 #footer .outer {
