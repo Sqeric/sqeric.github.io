@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://7xo1ts.com1.z0.glb.clouddn.com/hudson-maven-14.png?imageView2/2/w/707/h/443/q/88|watermark/2/text/RXJpYydzIEJsb2c=/font/5a6L5L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7xo1ts.com1.z0.glb.clouddn.com/hudson-maven-15.png?imageView2/2/w/707/h/443/q/88|watermark/2/text/RXJpYydzIEJsb2c=/font/5a6L5L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7xo1ts.com1.z0.glb.clouddn.com/hudson-maven-16.png?imageView2/2/w/707/h/443/q/88|watermark/2/text/RXJpYydzIEJsb2c=/font/5a6L5L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
-<meta property="og:updated_time" content="2015-12-12T15:36:47.583Z">
+<meta property="og:updated_time" content="2015-12-31T05:55:21.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hudson+Maven构建持续集成环境">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;持续集成可以极大地简化项目开发，部署流程。所谓持续集成就是利用一套工具自动化地接管项目构建的整个生命周期。在一个简化的持续集成体系中，需要3类工具：构建工具(Maven),调度和控制平台(hudson),代码仓库(SVN)。本文将介绍如何使用hudson,maven,SVN来构造一个基础的持续集成环境。">
@@ -137,7 +137,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Hudson/" style="font-size: 10px;">Hudson</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/Hudson/" style="font-size: 10px;">Hudson</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -237,8 +237,21 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xo1ts.com1.z0.glb.clouddn.com/hudson-maven-0.png" alt=""><br> &emsp;&emsp;持续集成可以极大地简化项目开发，部署流程。所谓持续集成就是利用一套工具自动化地接管项目构建的整个生命周期。在一个简化的持续集成体系中，需要3类工具：构建工具(Maven),调度和控制平台(hudson),代码仓库(SVN)。本文将介绍如何使用hudson,maven,SVN来构造一个基础的持续集成环境。<br><a id="more"></a> </p>
-<blockquote>
-<p><font size="4">目录</font><br> <a href="#1-_安装Hudson">1. 安装Hudson</a><br> &emsp;<font size="2.5"><a href="#1-1_下载Hudson">1.1 下载Hudson</a></font><br> &emsp;<font size="2.5"><a href="#1-2_部署Hudson">1.2 部署Hudson</a></font><br> &emsp;<font size="2.5"><a href="#1-3_安装插件">1.3 安装插件</a></font><br> <a href="#2-_全局配置">2. 全局配置</a><br> &emsp;<font size="2.5"><a href="#2-1_配置Tomcat编码格式">2.1 配置Tomcat编码格式</a></font><br> &emsp;<font size="2.5"><a href="#2-2_Hudson个性化配置">2.2 Hudson个性化配置</a></font><br> &emsp;<font size="2.5"><a href="#2-3_配置JDK">2.3 配置JDK</a></font><br> &emsp;<font size="2.5"><a href="#2-3_配置Maven3">2.4 配置Maven3</a></font><br> &emsp;<font size="2.5"><a href="#2-5_配置Subversion">2.5 配置Subversion</a></font><br> <a href="#3-_作业配置">3. 作业配置</a><br> &emsp;<font size="2.5"><a href="#3-1_新建任务">3.1 新建任务</a></font><br> &emsp;<font size="2.5"><a href="#3-2_作业基本配置">3.2 作业基本配置</a></font><br> &emsp;<font size="2.5"><a href="#3-3_高级作业配置">3.2 高级作业配置</a></font><br> &emsp;<font size="2.5"><a href="#3-4_代码源配置">3.4 代码源配置</a></font><br> &emsp;<font size="2.5"><a href="#3-5_构建触发器配置">3.5 构建触发器配置</a></font><br> &emsp;<font size="2.5"><a href="#3-6_构建配置">3.6 构建配置</a></font><br> &emsp;<font size="2.5"><a href="#3-7_自动部署配置">3.7 自动部署配置</a></font><br> <a href="#4-_问题及解决">4. 问题及解决</a><br> &emsp;<font size="2.5"><a href="#4-1_Maven编译过程中内存泄露">4.1  Maven编译过程中内存泄露</a></font><br> &emsp;<font size="2.5"><a href="#4-2_Tomcat热部署时内存泄露">4.2 Tomcat热部署时内存泄露</a></font><br> <a href="#5-_总结">5. 总结</a></p>
+<h2 id="目录">目录</h2><blockquote>
+<p><a href="#1-_安装Hudson">1. 安装Hudson</a><!--&emsp;<font size=2.5>[1.1 下载Hudson](#1-1_下载Hudson)</font>
+ &emsp;<font size=2.5>[1.2 部署Hudson](#1-2_部署Hudson)</font>
+ &emsp;<font size=2.5>[1.3 安装插件](#1-3_安装插件)</font>--><br> <a href="#2-_全局配置">2. 全局配置</a><!--&emsp;<font size=2.5>[2.1 配置Tomcat编码格式](#2-1_配置Tomcat编码格式)</font>
+ &emsp;<font size=2.5>[2.2 Hudson个性化配置](#2-2_Hudson个性化配置)</font>
+ &emsp;<font size=2.5>[2.3 配置JDK](#2-3_配置JDK)</font>
+ &emsp;<font size=2.5>[2.4 配置Maven3](#2-3_配置Maven3)</font>
+ &emsp;<font size=2.5>[2.5 配置Subversion](#2-5_配置Subversion)</font>--><br> <a href="#3-_作业配置">3. 作业配置</a><!--&emsp;<font size=2.5>[3.1 新建任务](#3-1_新建任务)</font>
+ &emsp;<font size=2.5>[3.2 作业基本配置](#3-2_作业基本配置)</font>
+ &emsp;<font size=2.5>[3.2 高级作业配置](#3-3_高级作业配置)</font>
+ &emsp;<font size=2.5>[3.4 代码源配置](#3-4_代码源配置)</font>
+ &emsp;<font size=2.5>[3.5 构建触发器配置](#3-5_构建触发器配置)</font>
+ &emsp;<font size=2.5>[3.6 构建配置](#3-6_构建配置)</font>
+ &emsp;<font size=2.5>[3.7 自动部署配置](#3-7_自动部署配置)</font>--><br> <a href="#4-_问题及解决">4. 问题及解决</a><!--&emsp;<font size=2.5>[4.1  Maven编译过程中内存泄露](#4-1_Maven编译过程中内存泄露)</font>
+ &emsp;<font size=2.5>[4.2 Tomcat热部署时内存泄露](#4-2_Tomcat热部署时内存泄露)</font>--><br> <a href="#5-_总结">5. 总结</a></p>
 </blockquote>
 <h2 id="1-_安装Hudson">1. 安装Hudson</h2><blockquote>
 <p>Hudson是Jenkins的前身，是基于Java开发的一种持续集成工具，用于监控程序重复的工作，具有许多便捷的特性，就本项目而言，主要关注以下特性：</p>
@@ -387,15 +400,6 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2015/11/06/Git简明教程(1)-原理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Git简明教程(1)-- 原理
-        
-      </div>
-    </a>
-  
   
     <a href="/2015/11/06/开篇第一章/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">创世之初：开篇第一章</div>
@@ -406,50 +410,6 @@ var _hmt = _hmt || [];
 
   
 </article>
-
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-_安装Hudson"><span class="toc-number">1.</span> <span class="toc-text">1. 安装Hudson</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1_下载Hudson"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 下载Hudson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2_部署Hudson"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 部署Hudson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3_安装插件"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 安装插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-_全局配置"><span class="toc-number">2.</span> <span class="toc-text">2. 全局配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1_配置Tomcat编码格式"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 配置Tomcat编码格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2_Hudson个性化配置"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Hudson个性化配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3_配置JDK"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 配置JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4_配置Maven3"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 配置Maven3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5_配置Subversion"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 配置Subversion</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-_作业配置"><span class="toc-number">3.</span> <span class="toc-text">3. 作业配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1_新建任务"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 新建任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2_作业基本配置"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 作业基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3_高级作业配置"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 高级作业配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4_代码源配置"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 代码源配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5_构建触发器配置"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 构建触发器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6_构建配置"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 构建配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7_自动部署配置"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 自动部署配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-_问题及解决"><span class="toc-number">4.</span> <span class="toc-text">4. 问题及解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1_Maven编译过程中内存泄露"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 Maven编译过程中内存泄露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2_Tomcat热部署时内存泄露"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 Tomcat热部署时内存泄露</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-_总结"><span class="toc-number">5.</span> <span class="toc-text">5. 总结</span></a></li></ol>
-</div>
-<style>
-    .left-col .switch-btn {
-        display: none;
-    }
-    .left-col .switch-area {
-        display: none;
-    }
-</style>
-
-<input type="button" id="tocButton" value="hide"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script>
-    var toc_button = document.getElementById("tocButton");
-    var toc_div = document.getElementById("toc");
-    toc_button.onclick=function() {
-        if (toc_div.style.display == "none") {
-            toc_div.style.display = "block";
-            toc_button.value = "hide";
-            document.getElementById("switch-btn").style.display = "none";
-            document.getElementById("switch-area").style.display = "none";
-        }
-        else {
-            toc_div.style.display = "none";
-            toc_button.value = "display";
-            document.getElementById("switch-btn").style.display = "block";
-            document.getElementById("switch-area").style.display = "block";
-        }
-    }
-
-    if ($(".toc").length < 1) {
-        $("#toc").css("display","none");
-        $("#tocButton").css("display","none");
-        $(".switch-btn").css("display","block");
-        $(".switch-area").css("display","block");
-    }
-</script>
-
-
 
 
 
