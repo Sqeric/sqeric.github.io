@@ -255,6 +255,51 @@ var _hmt = _hmt || [];
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Heading_0"><span class="toc-number">1.</span> <span class="toc-text">Heading 0</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heading_1"><span class="toc-number">2.</span> <span class="toc-text">Heading 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Heading_2"><span class="toc-number">2.1.</span> <span class="toc-text">Heading 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Heading_3"><span class="toc-number">2.2.</span> <span class="toc-text">Heading 3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Heading_with_anchor_[with-anchor]"><span class="toc-number">3.</span> <span class="toc-text">Heading with anchor [with-anchor]</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="hide"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var toc_button = document.getElementById("tocButton");
+    var toc_div = document.getElementById("toc");
+    toc_button.onclick=function() {
+        if (toc_div.style.display == "none") {
+            toc_div.style.display = "block";
+            toc_button.value = "hide";
+            document.getElementById("switch-btn").style.display = "none";
+            document.getElementById("switch-area").style.display = "none";
+        }
+        else {
+            toc_div.style.display = "none";
+            toc_button.value = "display";
+            document.getElementById("switch-btn").style.display = "block";
+            document.getElementById("switch-area").style.display = "block";
+        }
+    }
+
+    if ($(".toc").length < 1) {
+        $("#toc").css("display","none");
+        $("#tocButton").css("display","none");
+        $(".switch-btn").css("display","block");
+        $(".switch-area").css("display","block");
+    }
+</script>
+
+
+
+
 
 <div class="share">
 	<!-- JiaThis Button BEGIN -->
